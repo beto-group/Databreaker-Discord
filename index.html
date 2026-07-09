@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Databreaker Discord Activity</title>
+    <style>
+      body {
+        background-color: #000;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      #root {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Polyfill process for browser environments (Obsidian has it via Electron, browsers don't)
+      // This must run before the module is imported.
+      window.process = window.process || { env: { NODE_ENV: 'production' } };
+    </script>
+    <script type="module">
+      import { mount_app } from './bundle.es.js';
+      
+      mount_app(document.getElementById('root'), {
+        platform: 'discord-activity'
+      });
+    </script>
+  </body>
+</html>
