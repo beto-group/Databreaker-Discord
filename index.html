@@ -20,15 +20,11 @@
   <body>
     <div id="root"></div>
     <script type="module">
-      import { createRoot } from 'https://esm.sh/react-dom@18.2.0/client';
-      import React from 'https://esm.sh/react@18.2.0';
-      window.React = React;
+      import { mount_app } from './bundle.es.js';
       
-      // Load the bundled component
-      import Component from './bundle.es.js';
-      
-      const root = createRoot(document.getElementById('root'));
-      root.render(React.createElement(Component));
+      mount_app(document.getElementById('root'), {
+        platform: 'discord-activity'
+      });
     </script>
   </body>
 </html>
