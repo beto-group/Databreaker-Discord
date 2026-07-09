@@ -19,6 +19,11 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Polyfill process for browser environments (Obsidian has it via Electron, browsers don't)
+      // This must run before the module is imported.
+      window.process = window.process || { env: { NODE_ENV: 'production' } };
+    </script>
     <script type="module">
       import { mount_app } from './bundle.es.js';
       
