@@ -25,10 +25,11 @@
       window.process = window.process || { env: { NODE_ENV: 'production' } };
     </script>
     <script type="module">
-      import { mount_app } from './bundle.es.js';
-      
-      mount_app(document.getElementById('root'), {
-        platform: 'discord-activity'
+      const version = Date.now();
+      import(`./bundle.es.js?v=${version}`).then(mod => {
+        mod.mount_app(document.getElementById('root'), {
+          platform: 'discord-activity'
+        });
       });
     </script>
   </body>
