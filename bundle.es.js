@@ -31228,17 +31228,17 @@ class CC {
   async hostGame(i = null) {
     return new Promise((s, c) => {
       try {
-        const d = i ? i.replace(/[^a-zA-Z0-9-]/g, "").substring(0, 36) : void 0;
-        this.peer = d ? new fv(d) : new fv(), this.isHost = !0;
-        const m = setTimeout(() => {
+        const d = i ? i.replace(/[^a-zA-Z0-9-]/g, "").substring(0, 36) : void 0, v = window.location.hostname.includes("discordsays.com") ? { host: window.location.hostname, path: "/.proxy/peerjs", port: 443, secure: !0 } : void 0;
+        this.peer = d ? new fv(d, v) : new fv(void 0, v), this.isHost = !0;
+        const _ = setTimeout(() => {
           c(new Error("Host connection timeout"));
         }, 1e4);
-        this.peer.on("open", (v) => {
-          clearTimeout(m), this.peerId = v, console.log("Hosting game on ID:", v), s(v);
-        }), this.peer.on("connection", (v) => {
-          console.log("Guest connected!"), this.connection = v, this._setupConnection();
-        }), this.peer.on("error", (v) => {
-          clearTimeout(m), c(v);
+        this.peer.on("open", (E) => {
+          clearTimeout(_), this.peerId = E, console.log("Hosting game on ID:", E), s(E);
+        }), this.peer.on("connection", (E) => {
+          console.log("Guest connected!"), this.connection = E, this._setupConnection();
+        }), this.peer.on("error", (E) => {
+          clearTimeout(_), c(E);
         });
       } catch (d) {
         c(d);
@@ -31248,19 +31248,19 @@ class CC {
   async joinGame(i) {
     return new Promise((s, c) => {
       try {
-        const d = i ? i.replace(/[^a-zA-Z0-9-]/g, "").substring(0, 36) : void 0;
-        this.peer = new fv(), this.isHost = !1;
-        const m = setTimeout(() => {
+        const d = i ? i.replace(/[^a-zA-Z0-9-]/g, "").substring(0, 36) : void 0, v = window.location.hostname.includes("discordsays.com") ? { host: window.location.hostname, path: "/.proxy/peerjs", port: 443, secure: !0 } : void 0;
+        this.peer = new fv(void 0, v), this.isHost = !1;
+        const _ = setTimeout(() => {
           c(new Error("Join connection timeout"));
         }, 1e4);
-        this.peer.on("open", (v) => {
-          this.peerId = v, this.connection = this.peer.connect(d), this.connection.on("open", () => {
-            clearTimeout(m), console.log("Connected to Host!"), this._setupConnection(), s();
-          }), this.connection.on("error", (_) => {
-            clearTimeout(m), c(_);
+        this.peer.on("open", (E) => {
+          this.peerId = E, this.connection = this.peer.connect(d), this.connection.on("open", () => {
+            clearTimeout(_), console.log("Connected to Host!"), this._setupConnection(), s();
+          }), this.connection.on("error", (R) => {
+            clearTimeout(_), c(R);
           });
-        }), this.peer.on("error", (v) => {
-          clearTimeout(m), c(v);
+        }), this.peer.on("error", (E) => {
+          clearTimeout(_), c(E);
         });
       } catch (d) {
         c(d);
