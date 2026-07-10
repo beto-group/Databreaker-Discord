@@ -32269,7 +32269,7 @@ const Au = {
 });
 function ZP({ platformAPI: o }) {
   var yi;
-  const i = Pe.useRef(null), [s, u] = Pe.useState(!1), [d, m] = Pe.useState(null), [v, b] = Pe.useState([{ id: "local", score: 0 }]), [E, R] = Pe.useState("PRESS START"), [C, A] = Pe.useState("MAIN"), [B, K] = Pe.useState(!1), [J, X] = Pe.useState(null), [xe, Ke] = Pe.useState(""), [ge, ye] = Pe.useState("offline"), re = Pe.useRef(null), Ce = Pe.useRef([]), st = ({ h: F, idx: U }) => {
+  const i = Pe.useRef(null), [s, u] = Pe.useState((o == null ? void 0 : o.platform) === "discord-activity" || !!(o != null && o.discordSdk)), [d, m] = Pe.useState(null), [v, b] = Pe.useState([{ id: "local", score: 0 }]), [E, R] = Pe.useState("PRESS START"), [C, A] = Pe.useState("MAIN"), [B, K] = Pe.useState(!1), [J, X] = Pe.useState(null), [xe, Ke] = Pe.useState(""), [ge, ye] = Pe.useState("offline"), re = Pe.useRef(null), Ce = Pe.useRef([]), st = ({ h: F, idx: U }) => {
     var Ge;
     const [N, S] = Pe.useState(!1), [Re, Ve] = Pe.useState(!1), Et = F.diff ? (Ge = Au[F.diff]) == null ? void 0 : Ge.color : "#fff";
     return /* @__PURE__ */ _.jsxs("div", { style: { borderBottom: "1px solid rgba(255,255,255,0.05)" }, children: [
@@ -32443,8 +32443,8 @@ function ZP({ platformAPI: o }) {
   }, [et]);
   const [tn, gn] = Pe.useState(null), an = Pe.useRef({}), Kn = Pe.useRef([]), hr = Pe.useRef([]), ar = Pe.useRef(null), Cr = Pe.useRef(null), br = Pe.useRef(null), _r = Pe.useRef(null), jr = Pe.useRef(null), ri = Pe.useRef(null), Gr = Pe.useRef(null), fr = Pe.useRef(null), ir = Pe.useRef(null), dr = Pe.useRef(null), Er = Pe.useRef(null), xt = Pe.useRef(null), Nn = Pe.useRef(null), M = Pe.useRef(null), P = Pe.useRef(null), $ = Pe.useRef(null), Z = Pe.useRef(null), Y = Pe.useRef(null), W = Pe.useRef(null), ce = Pe.useRef(null), fe = Pe.useRef(null), be = Pe.useRef(null), it = Pe.useRef(null), vt = Pe.useRef(null), gt = Pe.useRef(null), Lt = Pe.useRef(null), pn = Pe.useRef(null), un = Pe.useRef(null), Yr = Pe.useRef(null), Ar = Pe.useRef(null), ii = o && o.system;
   Pe.useEffect(() => {
-    if ((o != null && o.discordSdk || ii) && setTimeout(() => {
-      u(!0), b([{ id: "local", score: 0 }, { id: "peer_123", score: 0 }]);
+    if (((o == null ? void 0 : o.platform) === "discord-activity" || o != null && o.discordSdk || ii) && setTimeout(() => {
+      b([{ id: "local", score: 0 }, { id: "peer_123", score: 0 }]);
     }, 1e3), !$p) return;
     async function F() {
       try {
